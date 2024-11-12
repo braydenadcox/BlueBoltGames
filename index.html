@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue Bolt Games - Challenging Mind Games for Mental Growth</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="BlueBoltGames.png">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <img src="BlueBoltGames.png" alt="Logo" class="logo-image" />  
+      <div class="logo">GAMES</div>
+      <div class="nav-items">
+        <a href="#arcade">Arcade</a>
+        <a href="#puzzles">Puzzles</a>
+        <a href="#strategy">Strategy</a>
+        <a href="/">Search</a>
+      </div>
+    </nav>
+    <div id="arcade" class="section">
+    </div>
+    <div id="puzzles" class="section">
+    </div>
+    <div id="strategy" class="section">
+    </div>
+    <section class="hero">
+      <div class="hero-container">
+      </div>
+    </section>
+  </body>
+  <script src="script.js"></script>
+  <script>
+    const tabs = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('div[id]');
+    
+    function showSection(targetId) {
+        sections.forEach(section => {
+            section.style.display = section.id === targetId.substring(1) ? 'block' : 'none'; // Show only the target section
+        });
+    }
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href'); 
+            showSection(targetId); // Show the target section
+        });
+    });
+    
+    // Initially show the first section and hide others
+    showSection(tabs[0].getAttribute('href')); // Show the first section on load
+    </script>    
+</html>
